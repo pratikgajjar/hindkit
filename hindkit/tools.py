@@ -3,7 +3,7 @@
 from __future__ import division, absolute_import, print_function, unicode_literals
 
 import subprocess, os, time, argparse
-import defcon, mutatorMath.ufo.document, WriteFeaturesKernFDK, WriteFeaturesMarkFDK
+import defcon, mutatorMath.ufo.document, .WriteFeaturesKernFDK, .WriteFeaturesMarkFDK
 import hindkit, hindkit.constants, hindkit.devanagari
 
 import hindkit.patches
