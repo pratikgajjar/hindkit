@@ -3,9 +3,9 @@
 from __future__ import division, absolute_import, print_function, unicode_literals
 
 import subprocess, os, time, argparse
-import defcon, mutatorMath.ufo.document, .WriteFeaturesKernFDK, .WriteFeaturesMarkFDK
+import defcon, mutatorMath.ufo.document
 import hindkit, hindkit.constants, hindkit.devanagari
-
+from hindkit import WriteFeaturesKernFDK, WriteFeaturesMarkFDK
 import hindkit.patches
 defcon.Glyph.insertAnchor = hindkit.patches.insertAnchor
 
