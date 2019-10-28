@@ -76,7 +76,7 @@ class Goadb(kit.BaseFile):
             abstract_directory = product.style.abstract_directory
         else:
             abstract_directory = kit.Project.directories["sources"]
-        super(Goadb, self).__init__(
+        super().__init__(
             name,
             project = project,
             abstract_directory = abstract_directory,

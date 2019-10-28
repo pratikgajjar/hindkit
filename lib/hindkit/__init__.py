@@ -10,6 +10,9 @@ def relative_to_cwd(path):
     return os.path.join(os.getcwd(), path)
 
 def memoize(obj):
+    """
+    Decorator to add caching in function.
+    """
     memoized = {}
     @functools.wraps(obj)
     def memoizer(*args, **kwargs):
@@ -51,6 +54,10 @@ def copy(src, dst):
         shutil.copy(src, dst)
 
 def fallback(*candidates):
+    """
+    :param candidates:
+    :return: First argument which is not None
+    """
     for i in candidates:
         if i is not None:
             return i
@@ -64,6 +71,9 @@ def remove_illegal_chars_for_postscript_name_part(name):
         ord(i): None for i in "[](){}<>/%\u0000\u0020\u0009\u000D\u000A\u000C-"
     })
 
+"""
+To have a import functionality of library at single entry point
+"""
 from hindkit import constants
 from hindkit import filters
 
@@ -72,5 +82,7 @@ from hindkit.objects.family import Family, DesignSpace, Fmndb
 from hindkit.objects.font import Master, Style, Product
 from hindkit.objects.glyphdata import GlyphData, Goadb
 from hindkit.objects.client import Client
-from hindkit.objects.feature import FeatureClasses, FeatureTables, FeatureLanguagesystems, FeatureGSUB, FeatureGPOS, FeatureKern, FeatureMark, FeatureOS2Extension, FeatureNameExtension, FeatureMatches, FeatureReferences
+from hindkit.objects.feature import (FeatureClasses, FeatureTables, FeatureLanguagesystems, FeatureGSUB, FeatureGPOS,
+                                     FeatureKern, FeatureMark, FeatureOS2Extension, FeatureNameExtension,
+                                     FeatureMatches, FeatureReferences)
 from hindkit.objects.project import Project

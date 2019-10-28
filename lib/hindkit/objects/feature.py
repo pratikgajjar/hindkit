@@ -11,7 +11,7 @@ class BaseFeature(kit.BaseFile):
             abstract_directory = style.abstract_directory
         else:
             abstract_directory = kit.Project.directories["features"]
-        super(BaseFeature, self).__init__(
+        super().__init__(
             name = kit.fallback(name, self._name),
             file_format = "FEA",
             project = project,
@@ -386,7 +386,7 @@ class FeatureMatches(BaseFeature):
     POTENTIAL_abvm_ANCHOR_NAMES = ["abvm.e", "abvm"]
 
     def __init__(self, project, style=None):
-        super(FeatureMatches, self).__init__(project, style=style)
+        super().__init__(project, style=style)
         self._bases_alive = None
         self._bases_dead = None
 

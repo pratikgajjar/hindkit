@@ -1,6 +1,12 @@
-import os, subprocess
-import defcon, mutatorMath.ufo.document
+import os
+import shutil
+import subprocess
+
+import defcon
+import mutatorMath.ufo.document
+
 import hindkit as kit
+
 
 class Family(object):
 
@@ -105,12 +111,20 @@ class Family(object):
             "-c",
             "-n",
         ])
+        self.move_instances_ufo_to_intermediate_style()
+
+    def move_instances_ufo_to_intermediate_style(self):
+        for style in self.styles:
+            shutil.copytree(
+                os.path.join('intermediates', 'instances', f'{style.full_name_postscript}.{style.extension}'),
+                os.path.join('intermediates', 'styles', f'{style.name}', f'font.{style.extension}')
+            )
 
 
 class DesignSpace(kit.BaseFile):
 
     def __init__(self, project, name="font"):
-        super(DesignSpace, self).__init__(
+        super().__init__(
             name,
             project = project,
             file_format = "DesignSpace",
@@ -177,7 +191,7 @@ class Fmndb(kit.BaseFile):
     ]
 
     def __init__(self, project, name="FontMenuNameDB"):
-        super(Fmndb, self).__init__(name, project=project)
+        super().__init__(name, project=project)
         self.lines = []
         self.lines.extend(self.LINES_HEAD)
 

@@ -2,6 +2,11 @@ import re
 import hindkit as kit
 
 def marks(family, glyph):
+    """
+    :param family:
+    :param glyph:
+    :return: True when glyph has at least one anchor
+    """
     has_mark_anchor = False
     for anchor in glyph.anchors:
         if anchor.name:
@@ -30,9 +35,19 @@ def get_end(family, glyph):
     return end
 
 def bases_alive(family, glyph):
+    """
+    :param family:
+    :param glyph:
+    :return: True if full character
+    """
     return get_end(family, glyph) in kit.FeatureMatches.CONSONANTS_ALIVE
 
 def bases_dead(family, glyph):
+    """
+    :param family:
+    :param glyph:
+    :return: True if half character
+    """
     return get_end(family, glyph) in kit.FeatureMatches.CONSONANTS_DEAD
 
 POTENTIAL_BASES_FOR_LONG_mII = """
