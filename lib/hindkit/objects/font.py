@@ -26,7 +26,7 @@ class BaseFont(kit.BaseFile):
         weight_and_width_class = (400, 5),
     ):
 
-        super(BaseFont, self).__init__(
+        super().__init__(
             name,
             file_format = file_format,
             abstract_directory = abstract_directory,
@@ -359,7 +359,7 @@ class Master(BaseFont):
 
     def __init__(self, family, name, location=0):
 
-        super(Master, self).__init__(
+        super().__init__(
             family,
             name,
             abstract_directory = kit.Project.directories["masters"],
@@ -396,7 +396,7 @@ class Style(BaseFont):
         weight_and_width_class = (400, 5),
     ):
 
-        super(Style, self).__init__(
+        super().__init__(
             family,
             name,
             abstract_directory = os.path.join(kit.Project.directories["styles"], name),
@@ -431,7 +431,7 @@ class Product(BaseFont):
         self.weight_class = self.style.weight_class
         self.width_class = self.style.width_class
 
-        super(Product, self).__init__(
+        super().__init__(
             self.style.family,
             self.style.name,
             file_format = file_format,

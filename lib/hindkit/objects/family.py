@@ -110,7 +110,7 @@ class Family(object):
 class DesignSpace(kit.BaseFile):
 
     def __init__(self, project, name="font"):
-        super(DesignSpace, self).__init__(
+        super().__init__(
             name,
             project = project,
             file_format = "DesignSpace",
@@ -177,7 +177,7 @@ class Fmndb(kit.BaseFile):
     ]
 
     def __init__(self, project, name="FontMenuNameDB"):
-        super(Fmndb, self).__init__(name, project=project)
+        super().__init__(name, project=project)
         self.lines = []
         self.lines.extend(self.LINES_HEAD)
 
